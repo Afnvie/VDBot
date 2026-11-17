@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+      - run: |
+          flyctl apps create afnurlbot || true
+          flyctl deploy --remote-only
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_API_TOKEN: ${{ FlyV1 fm2_lJPECAAAAAAAGgcuxBC47W0n9PrLNWO4XsaTbKZ9wrVodHRwczovL2FwaS5mbHkuaW8vdjGUAJLOAB8X6x8Lk7lodHRwczovL2FwaS5mbHkuaW8vYWFhL3YxxDyXzqqg8r2qj5SdokVta4K+w1hsSqoQUq+UkBd4DS58Jwlkvtwplbvun5efXJCkLREnF1at3Hw5DnMbX7DETiCpcROINDsL3puPvY0QbUfjId4FCn5VQW/YeYDUPf0sfnDA0frFMfjUEC2Knv40fMJbqF/aJ3fkt+KyivsI86wrLYwczPZkA5yDXQKODcQgLlnvjqkAa3bCbN/kB8DaYhmjtGI0vMvXwsiuEpkcNFA=,fm2_lJPETiCpcROINDsL3puPvY0QbUfjId4FCn5VQW/YeYDUPf0sfnDA0frFMfjUEC2Knv40fMJbqF/aJ3fkt+KyivsI86wrLYwczPZkA5yDXQKODcQQnMW44JUKTPbVunvhmr4NG8O5aHR0cHM6Ly9hcGkuZmx5LmlvL2FhYS92MZgEks5q/BI7zwAAAAEm9DBZF84AHadhCpHOAB2nYQzEEJ7cG8Aeg5LrdLPyVGF2S5LEILpUQIkpSOTt3eDuGOl/dZ+B3vWEplFFf/XuEC+/TEcE }}
+          
