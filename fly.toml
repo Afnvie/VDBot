@@ -1,5 +1,22 @@
-app = "afnurlbot"
-primary_region = "sin" # Region Singapore (bisa diubah, mis: hkg untuk hongkong)
+# fly.toml app configuration file generated for vdbot on 2026-11-17T13:30:43Z
+#
+# See https://docs.fly.io/reference/configuration for information about how to use this file.
+#
+
+app = 'vdbot'
+primary_region = 'sin'
 
 [build]
-  # Menggunakan Dockerfile yang sudah ada di repository
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 1024
